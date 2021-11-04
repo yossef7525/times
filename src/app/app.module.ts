@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { C1Component } from './comps/c1/c1.component';
 import { C3Component } from './comps/c3/c3.component';
 import { C2Component } from './comps/c2/c2.component';
+import { LoginGoogleComponent } from './comps/login-google/login-google.component';
+import { MatrialModule } from './matrial/matrial.module';
 
 
 @NgModule({
@@ -13,12 +15,14 @@ import { C2Component } from './comps/c2/c2.component';
     AppComponent,
     C1Component,
     C2Component,
-    C3Component
+    C3Component,
+    LoginGoogleComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatrialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,17 @@
+.table-items{
+    display: block;
+    border: 1px solid #cce4fc;
+    font-family: 'Assistant', sans-serif;
+    width: 600px;
+    margin:auto;
+    border-radius: 2.5px;
+}
+.table-header{
+    width: 650px;
+    height: 50px;
+    background-color: #f2f9ff;
+}
+.table-row{
+    height: 45px;
+     border: 1px solid #cce4fc;
+}

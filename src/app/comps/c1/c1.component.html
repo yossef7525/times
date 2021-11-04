@@ -1,1 +1,19 @@
-<h1>c1 works!</h1>
+<h1>שעות עבודה</h1>
+
+<div class="table-items">
+    <table >
+        <tr class="table-header">
+            <th style="width: 150px;">מעסיק</th>
+            <th style="width:150px">תאריך</th>
+            <th style="width: 150px;">שעת התחלה</th>
+            <th style="width:150px">שעת סיום</th>
+        </tr>
+        <tr class="table-row" *ngFor="let x of data">
+            <td align="center">{{x.name}}</td>
+            <td align="center">{{x.date}}</td>
+            <td align="center">{{x.timeentry}}</td>
+            <td align="center">{{x.timeexit}}</td>
+        </tr>
+    
+    </table>
+</div>
