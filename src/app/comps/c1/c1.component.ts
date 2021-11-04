@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AjaxService } from 'src/app/services/ajax.service';
 
 @Component({
   selector: 'app-c1',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class C1Component implements OnInit {
 
-  constructor() { }
+  constructor(public mvc: AjaxService) { }
 
   ngOnInit(): void {
+    this.mvc.httpget()
   }
 
 }
