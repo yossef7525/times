@@ -7,10 +7,10 @@ import { LoginGoogleComponent } from './comps/login-google/login-google.componen
 
 const routes: Routes = [
   {path: 'c1', component:C1Component},
-  {path: 'c2', component:LoginGoogleComponent},
+  {path: 'login', component:LoginGoogleComponent},
   {path: 'c3', component:C3Component},
-  {path: '', redirectTo:'/c1', pathMatch:'full' },
-  {path: '**', redirectTo:'/c1', pathMatch:'full' }
+  {path: '', redirectTo:'/login', pathMatch:'full' },
+  {path: '**', redirectTo:'/login', pathMatch:'full' }
 
 ];
 

@@ -1,40 +1,54 @@
+.img{ 
+ float: right;
+ width: 75%;
+ height: 100%;
+ 
+}
+.header{
+ width: 60%;
+ height: 50%;
+ margin: auto;
+ margin-top: 10%;
+ background: #ffff;
+ border: 1px solid #abb1b8;
+ border-radius: 6px;
+ padding: 10px;
+}
 .google{
-    box-shadow: 20px -20px 30px 4px rgba(214,70,236,.8),
--20px 20px 30px 4px rgba(70,236,225,.8),
-20px -20px 30px 4px rgba(70,236,225,.6) inset,
--20px 20px 30px 4px rgba(214,70,236,.6) inset;
-
-
-border: 1px solid #cce4fc;
-border-radius: 5px;
-width: 5%;
-margin-left: 47/5%;
-margin-right: 47.5%;
+ 
+float: left;
+width: 25%;
+margin: auto;
 }
 .google-logo{
-  
-width: 5%;
-margin-left: 47/5%;
-margin-right: 47.5%;
+cursor: pointer;
+align-items: center;
+align-content: center;
 }
-h1, p{
+ul{ 
+  margin: auto;
+}
+li{ 
+ 
+  font-family: 'Assistant', sans-serif;
+  list-style: none;
+}
+li:before { content: '\2764';  margin-right: 25%; padding: 5px; color: red;} 
+h1, h3, p{
     text-align: center;
     font-family: 'Assistant', sans-serif;
 
 }
-
-@keyframes zoom-in-zoom-out {
-    0% {
-      transform: scale(1, 1);
-    }
-    50% {
-      transform: scale(1.2, 1.2);
-    }
-    100% {
-      transform: scale(1, 1);
-    }
-  }
-  .google:hover {
-      cursor: pointer;
-    animation: zoom-in-zoom-out 2s ease-out infinite;
-  }
+.build{
+ margin-top:50%;
+ border: 1px solid #cce4fc;
+ border-radius: 5px;
+ padding: 4px;
+ width: 50%;
+}
+.build:hover{
+ 
+  background: #cce4fc;
+  color: white;
+  cursor: pointer;
+ }

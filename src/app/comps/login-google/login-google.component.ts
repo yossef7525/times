@@ -11,5 +11,8 @@ export class LoginGoogleComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  login(){
+    location.replace('/google')
+  }
 
 }
