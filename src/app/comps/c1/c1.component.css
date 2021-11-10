@@ -19,7 +19,8 @@
     font-family: 'Assistant', sans-serif;
     margin: 10px;
     width: auto;
-    display: inline-block;
+    /* display: inline-block; */
+    float: right;
 }
 h1{ 
     font-family: 'Assistant', sans-serif;
@@ -42,6 +43,7 @@ h1{
     width: 60%;
     height: 60%;
     margin: auto;
+    margin-top: 10px;
     padding: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-right:1px solid #dbdbdb ;
@@ -75,5 +77,8 @@ h1{
 .start-btn{
     display: block;
     margin: auto;
+    margin-top: 5px;
     align-items: center;
+    font-family: 'Assistant', sans-serif;
+
 }
