@@ -1,18 +1,62 @@
-
 <mat-card class="ProfileCard">
 
-    
-    
+
+
     <h1>הפרופיל שלי</h1>
+    <button mat-fab color="accent" aria-label="Example icon button with a home icon">
+        <img *ngIf="user.photoUrl" class="img-profile" [src]="user.photoUrl" alt="">
+
+    </button>
     <!-- <h1>שעות עבודה</h1> -->
     <p><b>שם פרטי: </b>{{user.firstName}}</p>
     <p><b>משפחה: </b>{{user.lastName}}</p>
     <p><b>אימייל: </b>{{user.email}}</p>
-    <img *ngIf="user.photoUrl" [src]="user.photoUrl" alt="">
-    <button mat-raised-button  color="accent" (click)="signOut()">התנתק</button>
+
+    <button mat-raised-button class="signOut" color="accent" (click)="signOut()">התנתק</button>
 </mat-card>
-<div class="table-items">
-    <table >
+
+<div class="add-today">
+    <mat-accordion>
+        <mat-expansion-panel hideToggle class="cards">
+            <mat-expansion-panel-header>
+                <mat-panel-title class="card-title">
+                    עדכון שעות אוטומטי
+                </mat-panel-title>
+                <mat-panel-description class="card-description">
+                    שעון עצר יספור את שעות העבודה שלך!
+                </mat-panel-description>
+                <button mat-icon-button color="accent" aria-label="Example icon button with a heart icon">
+                    <mat-icon>favorite</mat-icon>
+                </button>
+            </mat-expansion-panel-header>
+            <p>
+                timaA: {{timeA.getHours()}}:{{timeA.getMinutes()}}:{{timeA.getSeconds()}} time:
+                {{time.getHours()}}:{{time.getMinutes()}}:{{time.getSeconds()}} timaB: {{timeB}}
+            </p>
+            <p>תאריך: {{myDate.getDate()}}/{{myDate.getMonth()+1}}/{{myDate.getFullYear()}}</p>
+            <button mat-raised-button class="start-btn" (click)="starttimer()" color="accent">התחל</button>
+
+            <mat-progress-bar *ngIf="timeron" mode="indeterminate"></mat-progress-bar>
+        </mat-expansion-panel>
+        <mat-expansion-panel hideToggle class="cards">
+            <mat-expansion-panel-header>
+                <mat-panel-title class="card-title">
+                    עדכון שעות ידני
+                </mat-panel-title>
+                <mat-panel-description class="card-description">
+                    הזן שעת התחלה ושעת סיום - לעדכון!
+                </mat-panel-description>
+                <button mat-icon-button color="accent" aria-label="Example icon button with a heart icon">
+                    <mat-icon>favorite</mat-icon>
+                </button>
+            </mat-expansion-panel-header>
+            <p>כאן נוסיף פונקינליות</p>
+        </mat-expansion-panel>
+
+    </mat-accordion>
+</div>
+<!-- <div class="table-items">
+    <table>
         <tr class="table-header">
             <th style="width: 150px;">מעסיק</th>
             <th style="width:150px">תאריך</th>
@@ -25,6 +69,6 @@
             <td align="center">{{x.timeentry}}</td>
             <td align="center">{{x.timeexit}}</td>
         </tr>
-    
+
     </table>
-</div>
+</div> -->

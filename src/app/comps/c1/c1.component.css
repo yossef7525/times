@@ -23,5 +23,57 @@
 }
 h1{ 
     font-family: 'Assistant', sans-serif;
+    display: inline-block;
+    margin: 10px;
     
+}
+.img-profile{
+    border-radius: 50%;
+    margin: -7.6px;
+    height: 40px;
+    width: 40px;
+}
+.signOut{
+    float: left;
+    font-family: 'Assistant', sans-serif;
+
+}
+.add-today{
+    width: 60%;
+    height: 60%;
+    margin: auto;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-right:1px solid #dbdbdb ;
+    border-left:1px solid #dbdbdb ;
+}
+.mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+.card-title{
+    font-family: 'Assistant', sans-serif;
+    font-weight: bolder;
+    text-align: center;
+    margin: auto;
+    width: 35%;
+    
+}
+.card-description{
+    text-align: center;
+    margin: auto;
+    font-family: 'Assistant', sans-serif;
+    font-weight: bolder;
+
+    float: left;
+}
+.cards{
+    width: 90%;
+    margin: auto;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+.start-btn{
+    display: block;
+    margin: auto;
+    align-items: center;
 }
