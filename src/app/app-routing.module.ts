@@ -4,9 +4,10 @@ import { C1Component } from './comps/c1/c1.component';
 import { C2Component } from './comps/c2/c2.component';
 import { C3Component } from './comps/c3/c3.component';
 import { LoginGoogleComponent } from './comps/login-google/login-google.component';
+import { LoginGuard } from './login.guard';
 
 const routes: Routes = [
-  {path: 'c1', component:C1Component},
+  {path: 'home', component:C1Component, canActivate:[LoginGuard]},
   {path: 'login', component:LoginGoogleComponent},
   {path: 'c3', component:C3Component},
   {path: '', redirectTo:'/login', pathMatch:'full' },

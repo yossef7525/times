@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class AjaxService {
 
+public user:{}={}
+ public loading:boolean = this.user != null;
   constructor(private http: HttpClient) {
 
     

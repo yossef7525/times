@@ -1,5 +1,16 @@
-<h1>שעות עבודה</h1>
 
+<mat-card class="ProfileCard">
+
+    
+    
+    <h1>הפרופיל שלי</h1>
+    <!-- <h1>שעות עבודה</h1> -->
+    <p><b>שם פרטי: </b>{{user.firstName}}</p>
+    <p><b>משפחה: </b>{{user.lastName}}</p>
+    <p><b>אימייל: </b>{{user.email}}</p>
+    <img *ngIf="user.photoUrl" [src]="user.photoUrl" alt="">
+    <button mat-raised-button  color="accent" (click)="signOut()">התנתק</button>
+</mat-card>
 <div class="table-items">
     <table >
         <tr class="table-header">

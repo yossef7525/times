@@ -6,47 +6,13 @@ var bodyParser = require('body-parser')
 const routes = require('./server/routers')
 const axios = require('axios'); 
 const sql = require("./server/db.js");
-const passport = require('passport');
-const cookieSession = require('cookie-session');
-require('./server/passport');
+// const passport = require('passport');
+// const cookieSession = require('cookie-session');
+// require('./server/passport');
 
 
 
 app.use('/api', routes)
-
-//OAUHT google
-app.use(cookieSession({
-  name: 'google-auth-session',
-  keys: ['key1', 'key2']
-}))
-
-app.use(passport.initialize());
-app.use(passport.session());
-
-app.get("/failed", (req, res) => {
-  res.send("Failed")
-})
-app.get("/success", (req, res) => {
-  addrow(req.user)
-  res.redirect('/')
-})
-
-app.get('/google',
-passport.authenticate('google', {
-  scope:
-  ['email', 'profile']
-}
-));
-
-app.get('/google/callback',
-passport.authenticate('google', {
-  failureRedirect: '/failed',
-}),
-function (req, res) {
-  res.redirect('/success')
-  
-}
-);
 app.use('/', serveStatic(path.join(__dirname, '/dist/angular-router')))
 app.use(bodyParser.urlencoded({  parameterLimit: 200000,
   limit: '50mb',
