@@ -1,0 +1,9 @@
+.mat-label{
+    color:#ff4081 !important;
+  }
+  .mat-form-field:hover{
+    outline-color: #ff4081 !important;
+  }
+  .stepper-style{
+    font-family: 'Assistant', sans-serif;
+  }
