@@ -1,0 +1,20 @@
+<mat-form-field appearance="fill">
+    <mat-label>בחר תאריך</mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>שעת התחלה</mat-label>
+    <input #ar1 type="time" matInput [(ngModel)]="time_a" (input)="logs(ar1.value, ar2.value)">
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>שעת סיום</mat-label>
+    <input #ar2 type="time" matInput [(ngModel)]="time_b" (input)="logs(ar1.value, ar2.value)" >
+  </mat-form-field>
+{{restime}}
+  <button mat-raised-button  color="accent" (click)="logs(ar1.value, ar2.value)">send</button>
+
+
+  

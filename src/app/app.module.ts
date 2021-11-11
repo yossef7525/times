@@ -11,7 +11,10 @@ import { MatrialModule } from './matrial/matrial.module';
 import { LoginGuard } from './login.guard';
 import { SocialLoginModule,SocialAuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider } from "angularx-social-login";
-
+import { TimerpageComponent } from './comps/timerpage/timerpage.component';
+import { ManualpageComponent } from './comps/manualpage/manualpage.component';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
+import {FormsModule} from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -19,16 +22,21 @@ import { GoogleLoginProvider } from "angularx-social-login";
     C1Component,
     C2Component,
     C3Component,
-    LoginGoogleComponent
+    LoginGoogleComponent,
+    TimerpageComponent,
+    ManualpageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     MatrialModule,
-    SocialLoginModule
+    SocialLoginModule,
+    FormsModule
   ],
-  providers: [LoginGuard,  {
+  providers: [LoginGuard, 
+    {provide: MAT_DATE_LOCALE, useValue: 'en-IL'},
+    {
     provide: "SocialAuthServiceConfig",
     useValue: {
       autoLogin: true,

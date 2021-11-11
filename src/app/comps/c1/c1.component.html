@@ -29,17 +29,7 @@
                     <mat-icon>favorite</mat-icon>
                 </button>
             </mat-expansion-panel-header>
-            <button mat-raised-button class="start-btn" *ngIf="timeron"> שעת התחלה: {{timeA.getHours()}}:{{timeA.getMinutes()}}:{{timeA.getSeconds()}}</button>
-                <button mat-raised-button class="start-btn" *ngIf="timeron"> שעת נוכחית: {{time.getHours()}}:{{time.getMinutes()}}:{{time.getSeconds()}}</button>
-                
-                <button mat-raised-button color="primary" class="start-btn" *ngIf="timeron">זמן עבודה: {{timeB}}</button>
-            <p *ngIf="timeron" style="font-family: 'Assistant', sans-serif;">תאריך: {{myDate.getDate()}}/{{myDate.getMonth()+1}}/{{myDate.getFullYear()}}</p>
-            <button mat-raised-button class="start-btn" (click)="starttimer()" color="accent" *ngIf="!timeron">התחל</button>
-            <mat-card-footer>
-                
-                <mat-progress-bar *ngIf="timeron" mode="indeterminate" color="accent"></mat-progress-bar>
-                <button mat-raised-button class="start-btn" style="float: left;" color="accent" *ngIf="timeron" (click)="offttimer()">סיים</button>
-        </mat-card-footer>
+            <app-timerpage></app-timerpage>
         </mat-expansion-panel>
         <mat-expansion-panel hideToggle class="cards">
             <mat-expansion-panel-header>
@@ -53,7 +43,7 @@
                     <mat-icon>favorite</mat-icon>
                 </button>
             </mat-expansion-panel-header>
-            <p>כאן נוסיף פונקינליות</p>
+            <app-manualpage></app-manualpage>
         </mat-expansion-panel>
 
     </mat-accordion>
