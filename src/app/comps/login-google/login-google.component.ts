@@ -18,7 +18,7 @@ export class LoginGoogleComponent implements OnInit {
   ngOnInit(): void {
     this.authService.authState.subscribe(user => {
       this.user = user;
-      this.srv.loading = (user!= null);
+      this.srv.loading = (user != null && user != undefined);
       this.srv.user = user;
       this.router.navigate(['/home'])
       console.log(user);

@@ -4,7 +4,7 @@ const path = require('path')
 const app = express();
 var bodyParser = require('body-parser')
 const routes = require('./server/routers')
-const axios = require('axios'); 
+const axios = require('axios');
 const sql = require("./server/db.js");
 // const passport = require('passport');
 // const cookieSession = require('cookie-session');
@@ -14,10 +14,12 @@ const sql = require("./server/db.js");
 
 app.use('/api', routes)
 app.use('/', serveStatic(path.join(__dirname, '/dist/angular-router')))
-app.use(bodyParser.urlencoded({  parameterLimit: 200000,
+app.use(bodyParser.urlencoded({
+  parameterLimit: 200000,
   limit: '50mb',
-  extended: true }))
-app.use(bodyParser.json({limit: '100mb'}))
+  extended: true
+}))
+app.use(bodyParser.json({ limit: '100mb' }))
 
 
 app.get(/.*/, function (req, res) {
@@ -25,27 +27,28 @@ app.get(/.*/, function (req, res) {
 })
 
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 4200
 app.listen(port)
 console.log(`app is listening on port: ${port}`)
 
-module.exports =  app
+module.exports = app
 
- async function addrow(user) {
-   const firstname = user.given_name, lastname = user.family_name, image = user.picture, email= user.email;
+async function addrow(user) {
+  const firstname = user.given_name, lastname = user.family_name, image = user.picture, email = user.email;
 
   sql.query(`select email from users where email='${email}'`, async function (error, results, fields) {
     if (error) throw error;
-   if(results.length <1){
-  var str = `INSERT INTO users (id, firstname, lastname, image, email) VALUES (${results.length+1}, "${firstname}","${lastname}","${image}", "${email}")`
-       console.log(str);
-  sql.query(str,async function (error, results, fields) {
-   if (error) throw error;
-   
- })
-}
- else {
-  console.log({message:'your email is find!! please enter a new email'})
- }
+    if (results.length < 1) {
+      var str = `INSERT INTO users (id, firstname, lastname, image, email) VALUES (${results.length + 1}, "${firstname}","${lastname}","${image}", "${email}")`
+      console.log(str);
+      sql.query(str, async function (error, results, fields) {
+        if (error) throw error;
 
-   })}
+      })
+    }
+    else {
+      console.log({ message: 'your email is find!! please enter a new email' })
+    }
+
+  })
+}

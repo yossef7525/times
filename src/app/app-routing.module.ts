@@ -7,16 +7,17 @@ import { LoginGoogleComponent } from './comps/login-google/login-google.componen
 import { LoginGuard } from './login.guard';
 
 const routes: Routes = [
-  {path: 'home', component:C1Component, canActivate:[LoginGuard]},
-  {path: 'login', component:LoginGoogleComponent},
-  {path: 'c3', component:C3Component},
-  {path: '', redirectTo:'/login', pathMatch:'full' },
-  {path: '**', redirectTo:'/login', pathMatch:'full' }
+  { path: 'home', canActivate: [LoginGuard], component: C1Component },
+  { path: 'login', component: LoginGoogleComponent },
+  { path: 'c3', component: C3Component },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '**', redirectTo: '/login', pathMatch: 'full' }
 
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+  providers: [LoginGuard],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

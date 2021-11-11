@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -7,16 +7,16 @@ import { Observable } from 'rxjs';
 })
 export class AjaxService {
 
-public user:{}={}
- public loading:boolean = this.user != null;
+  public user: {} = {}
+  public loading: boolean = false;
   constructor(private http: HttpClient) {
 
-    
+
   }
-  httpget(url: string) :Observable <any> {
+  httpget(url: string): Observable<any> {
     return this.http.get(url)
   }
-  
 
-  
+
+
 }

@@ -13,11 +13,12 @@ import { AjaxService } from 'src/app/services/ajax.service';
 })
 export class C1Component implements OnInit {
   panelOpenState = false;
-  public user: SocialUser = new SocialUser;
+  public user!: SocialUser
   data: Data[] = []
   constructor(public mvc: AjaxService, private authService: SocialAuthService, private router: Router) { }
 
   ngOnInit(): void {
+    console.log('user logind: ', this.mvc.loading, 'user:', this.mvc.user)
     this.authService.authState.subscribe(user => {
       this.user = user
     })
@@ -28,7 +29,7 @@ export class C1Component implements OnInit {
 
       })
   }
-  
+
   public async signOut(): Promise<void> {
 
     await this.authService.signOut(true);
