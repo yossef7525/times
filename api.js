@@ -12,14 +12,14 @@ const sql = require("./server/db.js");
 
 
 
-app.use('/api', routes)
 app.use('/', serveStatic(path.join(__dirname, '/dist/angular-router')))
 app.use(bodyParser.urlencoded({
   parameterLimit: 200000,
   limit: '50mb',
-  extended: true
+  extended: false
 }))
-app.use(bodyParser.json({ limit: '100mb' }))
+ app.use(bodyParser.json());
+app.use('/api', routes)
 
 
 app.get(/.*/, function (req, res) {
