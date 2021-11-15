@@ -46,9 +46,11 @@ export class ManualpageComponent implements OnInit {
 
 
     console.log({
-      time_a: this.time_a,
+      a: `${this.date.getDate()}/${this.date.getMonth() + 1}/${this.date.getFullYear()}`,
+      time_a: startDate,
       time_b: this.time_b,
-      sumtimer: results
+      seconds: endDate.getTime() - startDate.getTime(),
+      sumtimer: `${results}:00`
 
     })
   }
