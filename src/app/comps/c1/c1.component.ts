@@ -22,12 +22,9 @@ export class C1Component implements OnInit {
     this.authService.authState.subscribe(user => {
       this.user = user
     })
-    this.mvc.httpget("https://raw.githubusercontent.com/yossef7525/angular-router/master/src/data.json")
-      .subscribe(response => {
-        this.data = response["data"]
-        console.log(this.data);
+    this.mvc.httppost("http://localhost:4200/api/add", this.user).subscribe(response => {console.log(response)})
 
-      })
+   
   }
 
   public async signOut(): Promise<void> {

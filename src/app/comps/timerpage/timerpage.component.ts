@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AjaxService } from 'src/app/services/ajax.service';
 
 @Component({
   selector: 'app-timerpage',
@@ -12,13 +13,37 @@ export class TimerpageComponent implements OnInit {
   public time = new Date()
   public timeB!: string
   timeron: boolean = false;
-  constructor() { }
+  constructor(public srv:AjaxService) { }
 
   ngOnInit(): void {
+    this.srv.httppost('/api/gettimeron', {user: this.srv.user})
+    .subscribe(response => {
+      if(response!=null) {
+        this.timeA = new Date(response[0].dataon)
+        console.log('timeA:', this.timeA);
+        this.timeron = true;
+        this.timer = setInterval(() => { 
+          this.time = new Date();
+           var ms = this.time.getTime() - this.timeA.getTime()
+           
+          var seconds = Math.floor((ms / 1000) %60)
+          var minutes = Math.floor((ms / (1000 * 60)) %60)
+          var hours = Math.floor((ms / (1000 * 60 * 60)) %24)
+          hours = (hours < 10) ? Number(`0${hours}`) : hours
+          minutes = (minutes < 10) ? Number(`0${minutes}`) : minutes
+          seconds = (seconds < 10) ? Number(`0${seconds}`) : seconds
+          console.log(hours,minutes, seconds);
+          
+          this.timeB = `${hours}:${minutes}:${seconds}`
+          }, 1000);
+      }
+      
+    })
   }
   public starttimer(): void {
     this.timeron = true;
     this.timeA = new Date();
+    this.srv.httppost('api/addtimeruser', {user: this.srv.user, data: this.timeA}).subscribe(response=>console.log(response))
   this.timer = setInterval(() => { 
       this.time = new Date();
        var ms = this.time.getTime() - this.timeA.getTime()
@@ -29,13 +54,13 @@ export class TimerpageComponent implements OnInit {
       hours = (hours < 10) ? Number(`0${hours}`) : hours
       minutes = (minutes < 10) ? Number(`0${minutes}`) : minutes
       seconds = (seconds < 10) ? Number(`0${seconds}`) : seconds
-      console.log(hours,minutes, seconds);
+      console.log(hours+":"+minutes+":"+seconds);
       
       this.timeB = `${hours}:${minutes}:${seconds}`
       }, 1000);
   }
   public offttimer(): void {
-    
+    this.srv.httppost('api/deletetimeron', {user: this.srv.user}).subscribe(response=>console.log(response))
     var req = {
       data: `${this.myDate.getDate()}/${this.myDate.getMonth()+1}/${this.myDate.getFullYear()}`,
       timestart: this.timeA,

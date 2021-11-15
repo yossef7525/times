@@ -24,7 +24,6 @@ export class LoginGoogleComponent implements OnInit {
       // http.gost('/api/addrow', {firstname , lastname , email, image})
       this.router.navigate(['/home'])
       console.log(user);
-    this.srv.httppost("http://localhost:4200/api/add", user).subscribe(response => {console.log(response)})
 
     });
   }
