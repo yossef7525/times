@@ -15,6 +15,7 @@ export class C1Component implements OnInit {
   panelOpenState = false;
   public user!: SocialUser
   data: Data[] = []
+  public sumshow:boolean = false;
   constructor(public mvc: AjaxService, private authService: SocialAuthService, private router: Router) { }
 
   ngOnInit(): void {

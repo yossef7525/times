@@ -14,7 +14,8 @@ import { GoogleLoginProvider } from "angularx-social-login";
 import { TimerpageComponent } from './comps/timerpage/timerpage.component';
 import { ManualpageComponent } from './comps/manualpage/manualpage.component';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { TotaltimesComponent } from './comps/totaltimes/totaltimes.component'
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FormsModule } from '@angular/forms'
     C3Component,
     LoginGoogleComponent,
     TimerpageComponent,
-    ManualpageComponent
+    ManualpageComponent,
+    TotaltimesComponent
   ],
   imports: [
     BrowserModule,

@@ -63,14 +63,16 @@ export class TimerpageComponent implements OnInit {
   public offttimer(): void {
     this.srv.httppost('api/deletetimeron', { user: this.srv.user }).subscribe(response => console.log(response))
     var req = {
+      user: this.srv.user,
       data: `${this.myDate.getDate()}/${this.myDate.getMonth() + 1}/${this.myDate.getFullYear()}`,
-      timestart: this.timeA,
-      timeend: this.time,
-      sumtime: this.timeB,
+      start: this.timeA,
+      end: this.time,
+      sumtimer: this.timeB,
       seconds: this.time.getTime() - this.timeA.getTime()
     }
     console.log('req:', req);
-    // http.post('/???????', req)....
+    this.srv.httppost('/api/addtimeforuser', req).subscribe(response=>{console.log(response)});
+   
     this.timeron = false;
     clearInterval(this.timer);
   }

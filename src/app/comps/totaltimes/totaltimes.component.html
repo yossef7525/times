@@ -1,0 +1,51 @@
+<!-- 
+<table>
+  <tr>
+    <th>תאריך</th>
+    <th>שעת התחלה</th>
+    <th>שעת סיום</th>
+    <th>סך שעות</th>
+  </tr>
+  <tr *ngFor="let time in times">
+    <td>{{time.data}}</td>
+    <td>{{time.start}}</td>
+    <td>{{time.end}}</td>
+    <td>{{time.sumtimer}}</td>
+  </tr>
+</table> -->
+
+
+<table mat-table [dataSource]="times" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="data">
+      <th mat-header-cell *matHeaderCellDef> תאריך </th>
+      <td mat-cell *matCellDef="let element"> {{element.data}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="start">
+      <th mat-header-cell *matHeaderCellDef> שעת התחלה </th>
+      <td mat-cell *matCellDef="let element"> {{element.start}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="end">
+      <th mat-header-cell *matHeaderCellDef> שעת סיום </th>
+      <td mat-cell *matCellDef="let element"> {{element.end}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="sumtimer">
+      <th mat-header-cell *matHeaderCellDef> סך שעות </th>
+      <td mat-cell *matCellDef="let element"> {{element.sumtimer}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  

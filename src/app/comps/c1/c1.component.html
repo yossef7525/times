@@ -24,7 +24,7 @@
 
         </mat-card>
         <mat-expansion-panel hideToggle class="cards">
-            <mat-expansion-panel-header>
+            <mat-expansion-panel-header (click)="sumshow = false">
                 <mat-panel-title class="card-title">
                     עדכון שעות אוטומטי
                 </mat-panel-title>
@@ -38,7 +38,7 @@
             <app-timerpage></app-timerpage>
         </mat-expansion-panel>
         <mat-expansion-panel hideToggle class="cards">
-            <mat-expansion-panel-header>
+            <mat-expansion-panel-header (click)="sumshow = false">
                 <mat-panel-title class="card-title">
                     עדכון שעות ידני
                 </mat-panel-title>
@@ -52,7 +52,7 @@
             <app-manualpage></app-manualpage>
         </mat-expansion-panel>
         <mat-expansion-panel hideToggle class="cards">
-            <mat-expansion-panel-header>
+            <mat-expansion-panel-header (click)="sumshow = true">
                 <mat-panel-title class="card-title">
                     סיכום שעות העבודה שלך
                 </mat-panel-title>
@@ -64,6 +64,7 @@
                 </button>
             </mat-expansion-panel-header>
             <p style=" font-family: 'Assistant', sans-serif;">כאן יוצג שעות העבודה שתעדכן במערכת!</p>
+            <app-totaltimes *ngIf="sumshow"></app-totaltimes>
         </mat-expansion-panel>
         <mat-card class="cards" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
 
