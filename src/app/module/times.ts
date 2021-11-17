@@ -1,7 +1,8 @@
 export class Times {
-    id?:any;
+    id?: any;
     user: any;
     data: any;
+    hdata?: any;
     start: any;
     end: any;
     seconds: any;

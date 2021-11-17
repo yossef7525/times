@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AjaxService } from 'src/app/services/ajax.service';
+import { HDate } from '@hebcal/core';
+
 
 @Component({
   selector: 'app-timerpage',
@@ -8,6 +10,7 @@ import { AjaxService } from 'src/app/services/ajax.service';
 })
 export class TimerpageComponent implements OnInit {
   myDate = new Date()
+  hDate = new HDate().renderGematriya()
   public timer: any
   public timeA = new Date()
   public time = new Date()
@@ -71,8 +74,8 @@ export class TimerpageComponent implements OnInit {
       seconds: this.time.getTime() - this.timeA.getTime()
     }
     console.log('req:', req);
-    this.srv.httppost('/api/addtimeforuser', req).subscribe(response=>{console.log(response)});
-   
+    this.srv.httppost('/api/addtimeforuser', req).subscribe(response => { console.log(response) });
+
     this.timeron = false;
     clearInterval(this.timer);
   }

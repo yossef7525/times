@@ -11,6 +11,8 @@
                     {{timeB}}</button>
                 <p *ngIf="timeron" style="font-family: 'Assistant', sans-serif;">תאריך:
                     {{myDate.getDate()}}/{{myDate.getMonth()+1}}/{{myDate.getFullYear()}}</p>
+                <p *ngIf="timeron" style="font-family: 'Assistant', sans-serif;">תאריך עברי:
+                    {{hDate}}</p>
                 <button mat-raised-button class="start-btn" (click)="starttimer()" color="accent"
                     *ngIf="!timeron">התחל</button>
                 <mat-card-footer>

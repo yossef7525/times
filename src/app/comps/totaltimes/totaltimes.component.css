@@ -10,7 +10,11 @@ tr{
   width: 25%;
 }
 
+th{
+  font-weight: bolder !important;
+  font-family: 'Assistant', sans-serif;
 
+}
 .demo-table {
     width: 100%;
     height: 100%;
