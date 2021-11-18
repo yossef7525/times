@@ -3,6 +3,7 @@ export class Times {
     user: any;
     data: any;
     hdata?: any;
+    day: any;
     start: any;
     end: any;
     seconds: any;

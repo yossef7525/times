@@ -33,6 +33,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatNativeDateModule } from '@angular/material/core';
+import {ClipboardModule} from '@angular/cdk/clipboard';
 
 const modules = [
   BrowserAnimationsModule,
@@ -67,7 +68,8 @@ const modules = [
   MatTableModule,
   MatSortModule,
   MatPaginatorModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  ClipboardModule
 ]
 
 @NgModule({
