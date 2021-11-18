@@ -63,3 +63,13 @@ tr:hover{
   
   cursor: pointer;
 }
+.sumtimes{
+  font-family: 'Suez One', serif !important;
+  text-align: center;
+}
+.cards{
+  width: 110px;
+  margin: auto;
+  padding: 10px;
+  margin-bottom: 15px;
+}
