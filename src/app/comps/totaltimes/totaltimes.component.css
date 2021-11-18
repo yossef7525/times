@@ -4,20 +4,23 @@ table{
   height: 100%;
   margin: auto;
   font-family: 'Assistant', sans-serif;
+  border-collapse: collapse;
 
 }
 tr{
   width: 20%;
   height: 30px;
+  border-bottom: 1px solid #bdbdbd;
   
 }
 td{
-  border-bottom: 1px solid #bdbdbd;
+  padding: 0;
 }
 
 th{
   font-weight: bolder !important;
   font-family: 'Assistant', sans-serif;
+  padding: 0;
 
 }
 .demo-table {
@@ -47,3 +50,16 @@ th{
     text-align: center;
     font-weight: bold;
   }
+  .start-btn{
+    display: block;
+    margin: 5px;
+    margin-top: 5px;
+    align-items: center;
+    font-family: 'Assistant', sans-serif;
+
+}
+tr:hover{
+  background: #dddddd;
+  
+  cursor: pointer;
+}
