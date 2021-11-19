@@ -19,6 +19,14 @@ export class TotaltimesComponent implements OnInit {
  
   constructor(public srv: AjaxService) { }
   public gettimesmonth: Date = new Date()
+  public months = [
+    `${this.gettimesmonth.getMonth() - 3}/${this.gettimesmonth.getFullYear()}`,
+    `${this.gettimesmonth.getMonth() - 2}/${this.gettimesmonth.getFullYear()}`,
+    `${this.gettimesmonth.getMonth() - 1}/${this.gettimesmonth.getFullYear()}`,
+    `${this.gettimesmonth.getMonth()}/${this.gettimesmonth.getFullYear()}`,
+    `${this.gettimesmonth.getMonth() + 1}/${this.gettimesmonth.getFullYear()}`
+    ]
+  public month:string = `${this.gettimesmonth.getMonth() + 1}/${this.gettimesmonth.getFullYear()}`
   public times: Times[] = []
   public sum :string = '00:00:00'
   
@@ -26,7 +34,7 @@ export class TotaltimesComponent implements OnInit {
   // dataSource = this.times
 
   ngOnInit(): void {
-    this.srv.httppost('/api/getlisttimesforuser', { user: this.srv.user, months: this.gettimesmonth.getMonth() + 1, your: this.gettimesmonth.getFullYear() })
+    this.srv.httppost('/api/getlisttimesforuser', { user: this.srv.user, months: this.month})
       .subscribe(response => {let secondssum = 0
         response.forEach(function (element: any) {
          secondssum = secondssum + element.seconds
@@ -83,7 +91,56 @@ export class TotaltimesComponent implements OnInit {
     });
   }
 
+public  reqtimes(): void {
+  console.log('months:', this.month);
+  
+    this.srv.httppost('/api/getlisttimesforuser', { user: this.srv.user, months: this.month})
+      .subscribe(response => {let secondssum = 0
+        response.forEach(function (element: any) {
+         secondssum = secondssum + element.seconds
+          var h = new Date(element.start)
+          element.start = `${(new Date(element.start).getHours() < 10) ? '0' + new Date(element.start).getHours() : new Date(element.start).getHours()}:${(new Date(element.start).getMinutes() < 10) ? '0' + new Date(element.start).getMinutes() : new Date(element.start).getMinutes()}:${(new Date(element.start).getSeconds() < 10) ? '0' + new Date(element.start).getSeconds() : new Date(element.start).getSeconds()}`
+          element.end = `${(new Date(element.end).getHours() < 10) ? '0' + new Date(element.end).getHours() : new Date(element.end).getHours()}:${(new Date(element.end).getMinutes() < 10) ? '0' + new Date(element.end).getMinutes() : new Date(element.end).getMinutes()}:${(new Date(element.end).getSeconds() < 10) ? '0' + new Date(element.end).getSeconds() : new Date(element.end).getSeconds()}`
+          console.log('h: ' ,h);
+          switch (h.getDay()) {
+            case 0:
+              element.day = "ראשון";
+              break;
+            case 1:
+              element.day = "שני";
+              break;
+            case 2:
+              element.day = "שלישי";
+              break;
+            case 3:
+              element.day = "רביעי";
+              break;
+            case 4:
+              element.day = "חמישי";
+              break;
+            case 5:
+              element.day = "שישי";
+              break;
+            case 6:
+              element.day = "שבת";
+          }
+          element.hdata = new HDate(h).renderGematriya()
+          
+        });
+        var seconds = Math.floor((secondssum / 1000) % 60)
+      var minutes = Math.floor((secondssum / (1000 * 60)) % 60)
+      var hours = Math.floor((secondssum / (1000 * 60 * 60)) % 24)
+      var hour: any = (hours < 10) ? `0${hours}` : hours
+      var minute: any = (minutes < 10) ? `0${minutes}` : minutes
+      var second: any = (seconds < 10) ? `0${seconds}` : seconds
+      console.log(hour, minute, second);
 
+      this.sum = `${hour}:${minute}:${second}`
+        this.times = response
+
+        console.log(response)
+      })
+  }
 }
 // export class TableBasicExample {
 //   displayedColumns: string[] = ['תאריך', 'שעת התחלה', 'שעת סיום', 'סך שעות'];

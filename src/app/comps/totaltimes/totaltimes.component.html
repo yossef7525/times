@@ -1,5 +1,13 @@
 <button mat-raised-button class="start-btn" style="float: left;" color="accent" (click)="export()">Execl</button>
 <button mat-raised-button class="start-btn" style="float: left;" color="accent" (click)="export()">PDF</button>
+<mat-form-field appearance="fill" style="float: right;" color="accent">
+  <mat-label>בחר חודש</mat-label>
+  <mat-select  [(ngModel)]="month" (selectionChange)="reqtimes()">
+    <mat-option *ngFor="let mont of months" [value]="mont" >
+      {{mont}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
 <br>
 <br>
 <mat-card class="cards" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
