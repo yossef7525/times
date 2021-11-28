@@ -46,7 +46,7 @@ import { TotaltimesComponent } from './comps/totaltimes/totaltimes.component'
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              '868568893232-qa41m4tthpdtovt3qefbpitritgtn4jr.apps.googleusercontent.com'
+              '633794496660-kvq7kgqhrote45pel8u6ctcl5cveso7f.apps.googleusercontent.com'
 
 
             )

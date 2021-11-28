@@ -23,7 +23,7 @@ export class C1Component implements OnInit {
     this.authService.authState.subscribe(user => {
       this.user = user
     })
-    this.mvc.httppost("http://localhost:4200/api/add", this.user).subscribe(response => {console.log(response)})
+    this.mvc.httppost("/api/add", this.user).subscribe(response => {console.log(response)})
 
    
   }
