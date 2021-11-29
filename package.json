@@ -6,8 +6,7 @@
     "start": "node api.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "postinstall": "ng build --prod"
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
@@ -26,9 +25,11 @@
     "angularx-social-login": "^4.0.1",
     "axios": "^0.24.0",
     "express": "^4.17.1",
+    
+    "html2pdf.js": "^0.9.0",
+    "jspdf": "^2.4.0",
     "mssql": "^7.2.1",
     "mysql": "^2.18.1",
-    "ngx-export-as": "^1.12.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
