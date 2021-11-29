@@ -60,7 +60,9 @@ export class ManualpageComponent implements OnInit {
     console.log('req:', req);
     this.srv.httppost('/api/addtimeforuser', req).subscribe(response=>{console.log(response)});
    
-    
+  this.date = new Date();
+  this.time_a = ''
+  this.time_b = ''
 
   }}
 }
