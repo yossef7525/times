@@ -26,7 +26,7 @@
     <th align="center" data-f-name='Assistant' data-f-bold="true">שעת סיום</th>
     <th align="center" data-f-name='Assistant' data-f-bold="true">סך שעות</th>
   </tr>
-  <tr *ngFor="let time of times">
+  <tr *ngFor="let time of times" (click)="openDialog(time)">
     <td align="center" data-f-name='Assistant'>{{time.data}}</td>
     <td align="center" data-f-name='Assistant'>{{time.hdata}}</td>
     <td align="center" data-f-name='Assistant'>{{time.day}}</td>

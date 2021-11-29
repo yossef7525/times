@@ -1,0 +1,57 @@
+<mat-stepper  #stepper color="accent" class="stepper-style">
+    <mat-step>
+      <form>
+        <ng-template matStepLabel>עדכן תאריך</ng-template>
+        <mat-form-field appearance="outline" color="accent">
+          <mat-label>בחר תאריך</mat-label>
+          <input matInput [matDatepicker]="picker" name="dd" [(ngModel)]="date" class="stepper-style">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+  
+        </mat-form-field>
+        <div>
+          <button mat-raised-button matStepperNext color="accent" class="stepper-style">המשך</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step label="עדכן שעת התחלה">
+      <form>
+        <mat-form-field appearance="outline" color="accent">
+          <mat-label>שעת התחלה</mat-label>
+          <input #ar1 type="time" matInput [(ngModel)]="time_a" class="stepper-style" 
+            name="ar1">
+        </mat-form-field>
+        <div>
+          <button mat-raised-button matStepperPrevious color="accent" class="stepper-style">הקודם</button>
+          <button mat-raised-button matStepperNext color="accent" class="stepper-style" style="float: left;">הבא</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step label="עדכן שעת סיום">
+      <form>
+        <mat-form-field appearance="outline" color="accent">
+          <mat-label>שעת סיום</mat-label>
+          <input #ar2 type="time" matInput [(ngModel)]="time_b" class="stepper-style" (input)="testing()"
+            name="ar2">
+        </mat-form-field>
+        <div>
+          <button mat-raised-button matStepperPrevious color="accent" class="stepper-style">הקודם</button>
+          <button mat-raised-button matStepperNext color="accent" class="stepper-style" style="float: left;" >הבא</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>סיום</ng-template>
+      <div *ngIf="errortime">
+        <p style="color: red; font-weight: bolder;">* שעת התחלה צריכה להיות לפני שעת סיום</p>
+      </div>
+      <div *ngIf="!errortime">
+        <p style="font-weight: bolder;">כדי לעדכן שינויים לחץ על שלח, לתיקון לחץ על תיקון!</p>
+      </div>
+      <div>
+        <button mat-raised-button matStepperPrevious color="accent" class="stepper-style">תיקון</button>
+        <button (click)="logs()" mat-raised-button matStepperNext color="accent" class="stepper-style" style="float: left;"
+           >שלח</button>
+      </div>
+    </mat-step>
+  </mat-stepper>

@@ -15,7 +15,8 @@ import { TimerpageComponent } from './comps/timerpage/timerpage.component';
 import { ManualpageComponent } from './comps/manualpage/manualpage.component';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
-import { TotaltimesComponent } from './comps/totaltimes/totaltimes.component'
+import { TotaltimesComponent } from './comps/totaltimes/totaltimes.component';
+import { UpdateDialogComponent } from './comps/update-dialog/update-dialog.component'
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TotaltimesComponent } from './comps/totaltimes/totaltimes.component'
     LoginGoogleComponent,
     TimerpageComponent,
     ManualpageComponent,
-    TotaltimesComponent
+    TotaltimesComponent,
+    UpdateDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,8 @@ import { TotaltimesComponent } from './comps/totaltimes/totaltimes.component'
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              '633794496660-kvq7kgqhrote45pel8u6ctcl5cveso7f.apps.googleusercontent.com'
+              '633794496660-itvnplk3slqf12203mavhfh324f2ii2v.apps.googleusercontent.com'
+              // '633794496660-kvq7kgqhrote45pel8u6ctcl5cveso7f.apps.googleusercontent.com'
 
 
             )

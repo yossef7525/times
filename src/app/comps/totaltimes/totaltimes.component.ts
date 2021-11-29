@@ -4,6 +4,8 @@ import { HDate } from '@hebcal/core';
 import { Times } from 'src/app/module/times';
 import { AjaxService } from 'src/app/services/ajax.service';
 import TableToExcel from "@linways/table-to-excel";
+import {MatDialog} from '@angular/material/dialog';
+import { UpdateDialogComponent } from '../update-dialog/update-dialog.component';
 
 
 
@@ -17,7 +19,7 @@ import TableToExcel from "@linways/table-to-excel";
 
 export class TotaltimesComponent implements OnInit {
  
-  constructor(public srv: AjaxService) { }
+  constructor(public srv: AjaxService,public dialog: MatDialog) { }
   public gettimesmonth: Date = new Date()
   public months = [
     `${this.gettimesmonth.getMonth() - 3}/${this.gettimesmonth.getFullYear()}`,
@@ -90,7 +92,14 @@ export class TotaltimesComponent implements OnInit {
       },
     });
   }
+  openDialog(data:Times) {
+    const dialogRef = this.dialog.open(UpdateDialogComponent,{data});
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+      this.reqtimes()
+    });
+  }
 public  reqtimes(): void {
   console.log('months:', this.month);
   

@@ -18,6 +18,16 @@ getlisttimesforuser: function (req, res, next) {
         if (error) throw error;
         res.status(200).json(results)
     })
+},
+
+updatetimesid: function (req, res, next) {
+    const {id} = req.body
+    const {user, data, start, end, seconds, sumtimer} = req.body
+    var str = `UPDATE times SET user='${user.email}', data='${data}', start='${start}', end='${end}', seconds=${seconds}, sumtimer='${sumtimer}' where id=${id}`    
+    sql.query(str,async function (error, results, fields){
+        if (error) throw error;
+        res.status(200).json(results)
+    })
 }
 
 }

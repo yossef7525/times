@@ -16,9 +16,10 @@ router.post('/gettimeron', gettimeron)
 router.post('/deletetimeron', deletetimeron)
 
 //times module
-const {addtimeforuser, getlisttimesforuser} = require('./times')
+const {addtimeforuser, getlisttimesforuser, updatetimesid} = require('./times')
 
 router.post('/addtimeforuser', addtimeforuser)
 router.post('/getlisttimesforuser', getlisttimesforuser)
+router.post('/updatetimesid', updatetimesid)
 
 module.exports = router;
