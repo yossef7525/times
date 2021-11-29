@@ -48,8 +48,8 @@ import { UpdateDialogComponent } from './comps/update-dialog/update-dialog.compo
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              // '633794496660-itvnplk3slqf12203mavhfh324f2ii2v.apps.googleusercontent.com'
-              '633794496660-kvq7kgqhrote45pel8u6ctcl5cveso7f.apps.googleusercontent.com'
+              '633794496660-itvnplk3slqf12203mavhfh324f2ii2v.apps.googleusercontent.com'
+              // '633794496660-kvq7kgqhrote45pel8u6ctcl5cveso7f.apps.googleusercontent.com'
 
 
             )

@@ -1,11 +1,18 @@
 import { state } from '@angular/animations';
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { HDate } from '@hebcal/core';
 import { Times } from 'src/app/module/times';
 import { AjaxService } from 'src/app/services/ajax.service';
 import TableToExcel from "@linways/table-to-excel";
 import {MatDialog} from '@angular/material/dialog';
 import { UpdateDialogComponent } from '../update-dialog/update-dialog.component';
+// import jsPDF from 'jspdf';
+// import pdfMake from 'pdfmake/build/pdfmake';
+// import pdfFonts from 'pdfmake/build/vfs_fonts';
+// pdfMake.vfs = pdfFonts.pdfMake.vfs;
+// import htmlToPdfmake from 'html-to-pdfmake';
+import * as html2pdf from 'html2pdf.js'
+
 
 
 
@@ -150,6 +157,23 @@ public  reqtimes(): void {
         console.log(response)
       })
   }
+ 
+  
+ 
+public  htmltoPDF()
+{
+  const options = {
+    filename: 'שעות עבודה.pdf',
+    image: {type: 'jpeg'},
+    html2canvas: {},
+    jsPDF: {}
+  }
+  const content:Element | null = document.getElementById('pdfexporting');
+  html2pdf()
+  .from(content)
+  .set(options)
+  .save();
+}
 }
 // export class TableBasicExample {
 //   displayedColumns: string[] = ['תאריך', 'שעת התחלה', 'שעת סיום', 'סך שעות'];
