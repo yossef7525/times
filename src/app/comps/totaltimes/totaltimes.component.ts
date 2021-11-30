@@ -6,12 +6,7 @@ import { AjaxService } from 'src/app/services/ajax.service';
 import TableToExcel from "@linways/table-to-excel";
 import {MatDialog} from '@angular/material/dialog';
 import { UpdateDialogComponent } from '../update-dialog/update-dialog.component';
-// import jsPDF from 'jspdf';
-// import pdfMake from 'pdfmake/build/pdfmake';
-// import pdfFonts from 'pdfmake/build/vfs_fonts';
-// pdfMake.vfs = pdfFonts.pdfMake.vfs;
-// import htmlToPdfmake from 'html-to-pdfmake';
-import * as html2pdf from 'html2pdf.js'
+
 
 
 
@@ -25,6 +20,7 @@ import * as html2pdf from 'html2pdf.js'
 })
 
 export class TotaltimesComponent implements OnInit {
+  
  
   constructor(public srv: AjaxService,public dialog: MatDialog) { }
   public gettimesmonth: Date = new Date()
@@ -159,21 +155,16 @@ public  reqtimes(): void {
   }
  
   
- 
-public  htmltoPDF()
-{
-  const options = {
-    filename: 'שעות עבודה.pdf',
-    image: {type: 'jpeg'},
-    html2canvas: {},
-    jsPDF: {}
-  }
-  const content:Element | null = document.getElementById('pdfexporting');
-  html2pdf()
-  .from(content)
-  .set(options)
-  .save();
-}
+ public pdftest(): void {
+   const el = document.getElementById('pdf') as HTMLElement
+  const printContents:string = el.innerHTML;
+  const originalContents = document.body
+  document.body.innerHTML = printContents;
+  window.print();
+  location.reload();
+  // document.body = originalContents;
+   }
+
 }
 // export class TableBasicExample {
 //   displayedColumns: string[] = ['תאריך', 'שעת התחלה', 'שעת סיום', 'סך שעות'];

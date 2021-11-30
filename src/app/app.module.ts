@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { TotaltimesComponent } from './comps/totaltimes/totaltimes.component';
 import { UpdateDialogComponent } from './comps/update-dialog/update-dialog.component'
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { UpdateDialogComponent } from './comps/update-dialog/update-dialog.compo
     HttpClientModule,
     MatrialModule,
     SocialLoginModule,
-    FormsModule
+    FormsModule,
+  
   ],
   providers: [LoginGuard,
     { provide: MAT_DATE_LOCALE, useValue: 'he-HE' },
@@ -48,8 +50,8 @@ import { UpdateDialogComponent } from './comps/update-dialog/update-dialog.compo
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              '633794496660-itvnplk3slqf12203mavhfh324f2ii2v.apps.googleusercontent.com'
-              // '633794496660-kvq7kgqhrote45pel8u6ctcl5cveso7f.apps.googleusercontent.com'
+              // '633794496660-itvnplk3slqf12203mavhfh324f2ii2v.apps.googleusercontent.com'
+              '633794496660-kvq7kgqhrote45pel8u6ctcl5cveso7f.apps.googleusercontent.com'
 
 
             )
