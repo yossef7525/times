@@ -24,13 +24,7 @@ export class TotaltimesComponent implements OnInit {
  
   constructor(public srv: AjaxService,public dialog: MatDialog) { }
   public gettimesmonth: Date = new Date()
-  public months = [
-    `${this.gettimesmonth.getMonth() - 3}/${this.gettimesmonth.getFullYear()}`,
-    `${this.gettimesmonth.getMonth() - 2}/${this.gettimesmonth.getFullYear()}`,
-    `${this.gettimesmonth.getMonth() - 1}/${this.gettimesmonth.getFullYear()}`,
-    `${this.gettimesmonth.getMonth()}/${this.gettimesmonth.getFullYear()}`,
-    `${this.gettimesmonth.getMonth() + 1}/${this.gettimesmonth.getFullYear()}`
-    ]
+  public months = this.generateMonthsArray()
   public month:string = `${this.gettimesmonth.getMonth() + 1}/${this.gettimesmonth.getFullYear()}`
   public times: Times[] = []
   public sum :string = '00:00:00'
@@ -154,7 +148,21 @@ public  reqtimes(): void {
       })
   }
  
-  
+public generateMonthsArray() {
+    const months = [];
+    const now = new Date();
+    const start = new Date(now.getFullYear() - 2, now.getMonth(), 1); // שנתיים אחורה
+    const end = new Date(now.getFullYear() + 1, now.getMonth() + 1, 1); // שנה קדימה
+    
+    while (start < end) {
+        const month = start.getMonth() + 1; // חודשים ב-JavaScript מתחילים ב-0
+        const year = start.getFullYear();
+        months.push(`${month}/${year}`);
+        start.setMonth(start.getMonth() + 1); // מעבר לחודש הבא
+    }
+
+    return months;
+}
  public pdftest(): void {
    const el = document.getElementById('pdf') as HTMLElement
   const printContents:string = el.innerHTML;
