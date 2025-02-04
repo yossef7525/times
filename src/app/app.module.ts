@@ -16,7 +16,11 @@ import { ManualpageComponent } from './comps/manualpage/manualpage.component';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
 import { TotaltimesComponent } from './comps/totaltimes/totaltimes.component';
-import { UpdateDialogComponent } from './comps/update-dialog/update-dialog.component'
+import { UpdateDialogComponent } from './comps/update-dialog/update-dialog.component';
+import { AdminComponent } from './comps/admin/admin.component';
+import { NotaccessComponent } from './comps/notaccess/notaccess.component';
+import { AdminIdComponent } from './comps/admin-id/admin-id.component';
+import { CategoryComponent } from './comps/category/category.component'
 
 
 @NgModule({
@@ -29,7 +33,11 @@ import { UpdateDialogComponent } from './comps/update-dialog/update-dialog.compo
     TimerpageComponent,
     ManualpageComponent,
     TotaltimesComponent,
-    UpdateDialogComponent
+    UpdateDialogComponent,
+    AdminComponent,
+    NotaccessComponent,
+    AdminIdComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -50,8 +58,9 @@ import { UpdateDialogComponent } from './comps/update-dialog/update-dialog.compo
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              // '633794496660-itvnplk3slqf12203mavhfh324f2ii2v.apps.googleusercontent.com'
-              '633794496660-kvq7kgqhrote45pel8u6ctcl5cveso7f.apps.googleusercontent.com'
+               '633794496660-kvq7kgqhrote45pel8u6ctcl5cveso7f.apps.googleusercontent.com'
+            
+              //  '633794496660-itvnplk3slqf12203mavhfh324f2ii2v.apps.googleusercontent.com' 
 
 
             )

@@ -33,7 +33,7 @@ li{
   font-family: 'Assistant', sans-serif;
   list-style: none;
 }
-li:before { content: '\2764';  margin-right: 25%; padding: 5px; color: red;} 
+li:before { content: '\2764';  margin-right: 25%; padding: 5px; color: red !important;} 
 h1, h3, p{
     text-align: center;
     font-family: 'Assistant', sans-serif;

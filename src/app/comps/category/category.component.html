@@ -1,0 +1,23 @@
+<div style="text-align: center;">
+ <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>שם הקטגוריה</mat-label>
+    <input matInput [(ngModel)]="name">
+  </mat-form-field>
+  &nbsp; &nbsp;
+<button mat-raised-button color="primary" (click)="addCategory()">הוסף</button>
+</div>
+<table #teb id="teb">
+    <tr>
+      <th align="center" data-f-name='Assistant' data-f-bold="true">שם הקטוגריה</th>
+      <th align="center" data-f-name='Assistant' data-f-bold="true">פעולות</th>
+     
+    </tr>
+    <tr *ngFor="let x of category" >
+      <td align="center" data-f-name='Assistant'>{{x.name}}</td>
+      <td align="center" data-f-name='Assistant'>
+        <button mat-raised-button color="primary" class="btn btn-danger" style="margin: 10px;" (click)="deleteCategory(x.id)">מחק</button>
+        <button mat-raised-button color="primary" class="btn btn-primary" style="margin: 10px;" disabled>ערוך</button>
+      </td>
+     
+    </tr>
+  </table>

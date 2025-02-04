@@ -1,0 +1,28 @@
+<mat-card class="ProfileCard" *ngFor="let x of users" >
+        <button mat-fab color="accent" aria-label="Example icon button with a home icon">
+            <img *ngIf="x.image" class="img-profile" [src]="x.image" alt="">
+    
+        </button>
+        <section style="float:left"><a [routerLink]="['/admin-id']" [queryParams]="{id: x.id, email: x.email}">{{x.id}}</a></section>
+        <!-- <h1>שעות עבודה</h1> -->
+        <p><b>שם פרטי: </b>{{x.firstname}}</p>
+        <p><b>משפחה: </b>{{x.lastname}}</p>
+        <p><b>אימייל: </b>{{x.email}}</p>
+
+    </mat-card>
+
+
+
+<!-- <div class="users">
+    <div *ngFor="let x of users" class="user">
+        <button mat-fab color="accent" aria-label="Example icon button with a home icon">
+            <img *ngIf="x.image" class="img-profile" [src]="x.image" alt="">
+    
+        </button>
+        <h1>שעות עבודה</h1>
+        <p><b>שם פרטי: </b>{{x.firstname}}</p>
+        <p><b>משפחה: </b>{{x.lastname}}</p>
+        <p><b>אימייל: </b>{{x.email}}</p>
+    </div>
+
+</div> -->

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AjaxService } from 'src/app/services/ajax.service';
+import { Category } from '../category/category.component';
 // import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -16,26 +17,30 @@ export class ManualpageComponent implements OnInit {
   public time_b: any
   public restime: any
   public errortime: boolean = false
+  public errordate:boolean = false
+  public categorySelected!:number
+  public category:Category[] = []
   constructor(public srv:AjaxService) {
 
   }
 
   ngOnInit(): void {
-    // this.firstFormGroup = this._formBuilder.group({
-    //   firstCtrl: ['', Validators.required],
-    // });
-    // this.secondFormGroup = this._formBuilder.group({
-    //   secondCtrl: ['', Validators.required],
-    // });
+    this.srv.httppost('/api/getcategories', { user: this.srv.user }).subscribe(response => {
+      this.category = response.data
+    })
 
   }
   public testing(): void {
     this.errortime = (this.time_a < this.time_b ? false : true)
+    this.errordate = (this.date == null ? true : false)
   }
   public logs(): void {
-    if (this.errortime == true) {
+    this.testing();
+    if (this.errortime == true || this.errordate == true) {
       alert('אנא תקן את הנדרש')
     }else{
+      console.log(this.date);
+      
     var start = this.time_a.split(":");
     var end = this.time_b.split(":");
     var startDate = new Date(this.date.getFullYear(), this.date.getMonth(), this.date.getDate(), start[0], start[1], 0);
@@ -56,6 +61,7 @@ export class ManualpageComponent implements OnInit {
       end: endDate,
       sumtimer: `${results}:00`,
       seconds: endDate.getTime() - startDate.getTime(),
+      category: this.categorySelected
     }
     console.log('req:', req);
     this.srv.httppost('/api/addtimeforuser', req).subscribe(response=>{console.log(response)});

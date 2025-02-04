@@ -16,12 +16,14 @@ export class TimerpageComponent implements OnInit {
   public time = new Date()
   public timeB!: string
   timeron: boolean = false;
+  public category: any[] = []
+  public categorySelected!: number
   constructor(public srv: AjaxService) { }
 
   ngOnInit(): void {
     this.srv.httppost('/api/gettimeron', { user: this.srv.user })
       .subscribe(response => {
-        if (response != null) {
+        if (response != undefined) {
           this.timeA = new Date(response[0].dataon)
           console.log('timeA:', this.timeA);
           this.timeron = true;
@@ -43,6 +45,9 @@ export class TimerpageComponent implements OnInit {
         }
 
       })
+    this.srv.httppost('/api/getcategories', { user: this.srv.user }).subscribe(response => {
+      this.category = response.data
+    })
   }
   public starttimer(): void {
     this.timeron = true;
@@ -71,7 +76,8 @@ export class TimerpageComponent implements OnInit {
       start: this.timeA,
       end: this.time,
       sumtimer: this.timeB,
-      seconds: this.time.getTime() - this.timeA.getTime()
+      seconds: this.time.getTime() - this.timeA.getTime(), 
+      category: this.categorySelected
     }
     console.log('req:', req);
     this.srv.httppost('/api/addtimeforuser', req).subscribe(response => { console.log(response) });

@@ -16,15 +16,18 @@ export class C1Component implements OnInit {
   public user!: SocialUser
   data: Data[] = []
   public sumshow:boolean = false;
+  public admin:boolean = false
   constructor(public mvc: AjaxService, private authService: SocialAuthService, private router: Router) { }
 
   ngOnInit(): void {
     console.log('user logind: ', this.mvc.loading, 'user:', this.mvc.user)
     this.authService.authState.subscribe(user => {
       this.user = user
+      if(Object.values(this.user).indexOf('a0548475725@gmail.com')>-1 ){
+      this.admin = true
+      }
     })
     this.mvc.httppost("/api/add", this.user).subscribe(response => {console.log(response)})
-
    
   }
 

@@ -13,11 +13,20 @@
                     {{myDate.getDate()}}/{{myDate.getMonth()+1}}/{{myDate.getFullYear()}}</p>
                 <p *ngIf="timeron" style="font-family: 'Assistant', sans-serif;">תאריך עברי:
                     {{hDate}}</p>
-                <button mat-raised-button class="start-btn" (click)="starttimer()" color="accent"
+                <button mat-raised-button class="start-btn" (click)="starttimer()" color="primary"
                     *ngIf="!timeron">התחל</button>
                 <mat-card-footer>
 
-                    <mat-progress-bar *ngIf="timeron" mode="indeterminate" color="accent"></mat-progress-bar>
-                    <button mat-raised-button class="start-btn" style="float: left;" color="accent" *ngIf="timeron"
+                    <mat-form-field appearance="fill" *ngIf="timeron">
+                        <mat-label>לשיוך לפרוייקט בחר מהרשימה</mat-label>
+                    <mat-select  [(ngModel)]="categorySelected">
+                        <mat-option *ngFor="let c of category" [value]="c.id" >
+                          {{c.name}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+
+                    <mat-progress-bar *ngIf="timeron" mode="indeterminate" color="primary"></mat-progress-bar>
+                    <button mat-raised-button class="start-btn" style="float: left;" color="primary" *ngIf="timeron"
                         (click)="offttimer()">סיים</button>
                 </mat-card-footer>

@@ -88,3 +88,159 @@ h1{
 font-weight: bolder;
 text-align: center !important;
 }
+
+.fixed{
+   
+    float: left;
+    margin: 10px;
+    background-color: #3f51b5;
+    color: white;
+    border:1px solid #3f51b5 ;
+    border-radius: 2.5px;
+    font-family: 'Assistant', sans-serif;
+padding: 2px;
+text-align: center
+}
+
+.fixed.p{
+    font-family: 'Assistant', sans-serif; 
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@700&family=Assistant:wght@600&display=swap');
+
+.fixed {
+    padding: 10px !important;
+    border-radius: 8px !important;
+    background: rgba(255,255,255,0) !important;
+    border: 0px !important;
+    position: fixed;
+    bottom: -10px;
+    right: -10px;
+}
+
+.ProfileCard {
+    padding: 30px !important;
+    border-radius: 0px !important;
+    background: linear-gradient(45deg, #4D4C7D 0%, #827397 100%) !important;
+    border: 0px !important;
+    position: fixed;
+    top: -10px;
+    right: -10px;
+    height: 100%;
+    color: #fff
+}
+
+.signOut {
+    background: #fff !important;
+}
+
+.ng-tns-c30-0 > .start-btn {
+    box-shadow: 0px 0px !important;
+}
+
+.mat-raised-button.mat-primary {
+    background-color: #7610af !important;
+    color: #fff !important;
+}
+
+.mat-fab {
+    background-color: #7610af !important;
+    color: #fff !important;
+}
+
+body > app-root > app-c1 > div.add-today > mat-accordion > mat-card{
+    box-shadow: 0px 0px !important;
+}
+
+.add-today {
+    box-shadow: 0px 0px !important;
+    border: 0px !important;
+}
+
+.cards {
+    box-shadow: 0px 0px !important;
+    border: 2px solid #7610af;
+}
+
+#teb {
+    box-shadow: 0px 0px !important;
+    border: 2px solid #7610af ;
+    border-radius: 5px !important;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+    width: 100px;
+    height: 40px;
+    padding: 5px;
+    background: linear-gradient(45deg, #4D4C7D 0%, #827397 100%) !important;
+    border-radius: 5px;
+    margin: 5px;
+    font-family: 'Assistant', sans-serif !important;
+    color: #fff !important;
+}
+
+.mat-step-header:hover:not([aria-disabled]){
+    background: rgba(120,16,175,0.12) !important;
+    border-radius: 5px;
+}
+
+th, td {
+    color: #111 !important;
+}
+
+table{
+    border-collapse: inherit !important;
+}
+
+.mat-expansion-panel {
+    box-shadow: 0px 0px !important;
+    border: 2px solid #7610af ;
+    border-radius: 5px !important;
+}
+
+.mat-expansion-panel-header:hover {
+    background: rgba(120,16,175,0.12) !important;
+}
+
+.mat-expansion-panel-header.mat-expanded {
+    background: rgba(120,16,175,0.12) !important;
+}
+
+.mat-accent.start-btn {
+    background: linear-gradient(45deg, #4D4C7D 0%, #827397 100%) !important;
+}
+
+.mat-raised-button.mat-accent {
+    background-color: #7610af !important;
+    color: #fff !important;
+}
+
+.add-today {
+    position: relative;
+    left: -7.5% !important;
+    top: 25%;
+}
+
+.mat-progress-bar.mat-accent .mat-progress-bar-fill:after{
+    background: linear-gradient(45deg, #4D4C7D 0%, #827397 100%) !important;
+}
+
+.mat-progress-bar.mat-accent .mat-progress-bar-buffer{
+    background: rgba(120,16,175,0.32) !important;
+}
+
+.mat-button.mat-accent, .mat-icon-button.mat-accent, .mat-stroked-button.mat-accent{
+    color: #7610af !important;
+   
+}
+
+h1{
+    font-family: 'Assistant', sans-serif !important;
+    font-weight: bold;
+    text-align: center !important;
+}
+
+.mat-accordion > .mat-focus-indicator {
+    display: none;
+}

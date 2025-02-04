@@ -1,7 +1,7 @@
 <section id="pdf" #pdf>
-<button mat-raised-button class="start-btn" style="float: left;" color="accent" (click)="export()">Execl</button>
-<button mat-raised-button class="start-btn" style="float: left;" color="accent" (click)="pdftest()">PDF</button>
-<mat-form-field appearance="fill" style="float: right;" color="accent">
+<button mat-raised-button class="start-btn" style="float: left;" color="primary" (click)="export()">Execl</button>
+<button mat-raised-button class="start-btn" style="float: left;" color="primary" (click)="pdftest()">PDF</button>
+<mat-form-field appearance="fill" style="float: right;" color="primary">
   <mat-label>בחר חודש</mat-label>
   <mat-select  [(ngModel)]="month" (selectionChange)="reqtimes()">
     <mat-option *ngFor="let mont of months" [value]="mont" >
@@ -9,6 +9,20 @@
     </mat-option>
   </mat-select>
 </mat-form-field>
+&nbsp; &nbsp;
+<mat-form-field appearance="fill" style="float: right;" color="primary">
+  <mat-label>בחר פרוייקט</mat-label>
+  <mat-select  [(ngModel)]="categorySelected" (selectionChange)="reqtimes()">
+    <mat-option [value]="0" >
+      הצג הכל
+    </mat-option>
+    <mat-option *ngFor="let c of category" [value]="c.id" >
+      {{c.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<br>
+<br>
 <br>
 <br>
 <mat-card class="cards" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
@@ -23,6 +37,7 @@
     <th align="center" data-f-name='Assistant' data-f-bold="true">תאריך</th>
     <th align="center" data-f-name='Assistant' data-f-bold="true">עברי</th>
     <th align="center" data-f-name='Assistant' data-f-bold="true">יום</th>
+    <th align="center" data-f-name='Assistant' data-f-bold="true">פרוייקט</th>
     <th align="center" data-f-name='Assistant' data-f-bold="true">שעת התחלה</th>
     <th align="center" data-f-name='Assistant' data-f-bold="true">שעת סיום</th>
     <th align="center" data-f-name='Assistant' data-f-bold="true">סך שעות</th>
@@ -31,6 +46,7 @@
     <td align="center" data-f-name='Assistant'>{{time.data}}</td>
     <td align="center" data-f-name='Assistant'>{{time.hdata}}</td>
     <td align="center" data-f-name='Assistant'>{{time.day}}</td>
+    <td align="center" data-f-name='Assistant'>{{time.name ? time.name : '--'}}</td>
     <td align="center" data-f-name='Assistant'>{{time.start}}</td>
     <td align="center" data-f-name='Assistant'>{{time.end}}</td>
     <td align="center" data-f-name='Assistant'>{{time.sumtimer}}</td>

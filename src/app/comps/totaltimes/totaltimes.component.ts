@@ -21,16 +21,27 @@ import { UpdateDialogComponent } from '../update-dialog/update-dialog.component'
 
 export class TotaltimesComponent implements OnInit {
   
- 
+  public category: any[] = []
+  public categorySelected!: number
   constructor(public srv: AjaxService,public dialog: MatDialog) { }
   public gettimesmonth: Date = new Date()
-  public months = [
-    `${this.gettimesmonth.getMonth() - 3}/${this.gettimesmonth.getFullYear()}`,
-    `${this.gettimesmonth.getMonth() - 2}/${this.gettimesmonth.getFullYear()}`,
-    `${this.gettimesmonth.getMonth() - 1}/${this.gettimesmonth.getFullYear()}`,
-    `${this.gettimesmonth.getMonth()}/${this.gettimesmonth.getFullYear()}`,
-    `${this.gettimesmonth.getMonth() + 1}/${this.gettimesmonth.getFullYear()}`
-    ]
+
+  private generateMonths(): string[] {
+    const months: string[] = [];
+    const currentDate = new Date();
+    const startYear = currentDate.getFullYear() - 2;
+    const endYear = currentDate.getFullYear() + 1;
+
+    for (let year = startYear; year <= endYear; year++) {
+      for (let month = 1; month <= 12; month++) {
+        months.push(`${month}/${year}`);
+      }
+    }
+
+    return months;
+  }
+
+  public months = this.generateMonths();
   public month:string = `${this.gettimesmonth.getMonth() + 1}/${this.gettimesmonth.getFullYear()}`
   public times: Times[] = []
   public sum :string = '00:00:00'
@@ -74,18 +85,40 @@ export class TotaltimesComponent implements OnInit {
         });
         var seconds = Math.floor((secondssum / 1000) % 60)
       var minutes = Math.floor((secondssum / (1000 * 60)) % 60)
-      var hours = Math.floor((secondssum / (1000 * 60 * 60)) % 24)
+      var hours = Math.floor((secondssum / (1000 * 60 * 60)))
       var hour: any = (hours < 10) ? `0${hours}` : hours
       var minute: any = (minutes < 10) ? `0${minutes}` : minutes
       var second: any = (seconds < 10) ? `0${seconds}` : seconds
       console.log(hour, minute, second);
+//       var hour = Math.floor(secondssum / 3600).toString().padStart(2,'0'),
+//       minute = Math.floor(secondssum % 3600 / 60).toString().padStart(2,'0'),
+//       second = Math.floor(secondssum % 60).toString().padStart(2,'0');
+  
+//   // return h + ':' + m + ':' + s;
+//   // //return `${h}:${m}:${s}`;
+// this.sum = `${secondssum/60/60|0}:${secondssum/60%60|0}:${secondssum%60}`
+// var hrs = ~~(secondssum / 3600);
+//     var mins = ~~((secondssum % 3600) / 60);
+//     var secs = ~~secondssum % 60;
 
+//     // Output like "1:01" or "4:03:59" or "123:03:59"
+//     var ret = "";
+//     if (hrs > 0) {
+//         ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
+//     }
+//     ret += "" + mins + ":" + (secs < 10 ? "0" : "");
+//     ret += "" + secs;
+//     this.sum = ret;
       this.sum = `${hour}:${minute}:${second}`
         this.times = response
 
         console.log(response)
       })
+      this.srv.httppost('/api/getcategories', { user: this.srv.user }).subscribe(response => {
+        this.category = response.data
+      })
   }
+ 
   public export(): void {
     let table = document.querySelector("#teb");
     TableToExcel.convert(table, {
@@ -106,7 +139,7 @@ export class TotaltimesComponent implements OnInit {
 public  reqtimes(): void {
   console.log('months:', this.month);
   
-    this.srv.httppost('/api/getlisttimesforuser', { user: this.srv.user, months: this.month})
+    this.srv.httppost('/api/getlisttimesforuser', { user: this.srv.user, months: this.month, category: this.categorySelected})
       .subscribe(response => {let secondssum = 0
         response.forEach(function (element: any) {
          secondssum = secondssum + element.seconds
@@ -141,7 +174,7 @@ public  reqtimes(): void {
         });
         var seconds = Math.floor((secondssum / 1000) % 60)
       var minutes = Math.floor((secondssum / (1000 * 60)) % 60)
-      var hours = Math.floor((secondssum / (1000 * 60 * 60)) % 24)
+      var hours = Math.floor((secondssum / (1000 * 60 * 60)))
       var hour: any = (hours < 10) ? `0${hours}` : hours
       var minute: any = (minutes < 10) ? `0${minutes}` : minutes
       var second: any = (seconds < 10) ? `0${seconds}` : seconds

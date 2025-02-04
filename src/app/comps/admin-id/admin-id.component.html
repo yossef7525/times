@@ -1,0 +1,30 @@
+<button  mat-raised-button style=" font-family: 'Assistant', sans-serif; display:block;" color="accent" [routerLink]="['/admin']">ניהול</button>
+
+<p>admin-id works!</p>
+{{id}}
+{{email}}
+<mat-card class="cards" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+
+    <p class="sumtimes">סך הכל שעות:</p>
+    <h1 class="sumtimes">{{sum}}</h1>
+  
+  </mat-card>
+  
+  <table #teb id="teb">
+    <tr>
+      <th align="center" data-f-name='Assistant' data-f-bold="true">תאריך</th>
+      <th align="center" data-f-name='Assistant' data-f-bold="true">עברי</th>
+      <th align="center" data-f-name='Assistant' data-f-bold="true">יום</th>
+      <th align="center" data-f-name='Assistant' data-f-bold="true">שעת התחלה</th>
+      <th align="center" data-f-name='Assistant' data-f-bold="true">שעת סיום</th>
+      <th align="center" data-f-name='Assistant' data-f-bold="true">סך שעות</th>
+    </tr>
+    <tr *ngFor="let time of times" >
+      <td align="center" data-f-name='Assistant'>{{time.data}}</td>
+      <td align="center" data-f-name='Assistant'>{{time.hdata}}</td>
+      <td align="center" data-f-name='Assistant'>{{time.day}}</td>
+      <td align="center" data-f-name='Assistant'>{{time.start}}</td>
+      <td align="center" data-f-name='Assistant'>{{time.end}}</td>
+      <td align="center" data-f-name='Assistant'>{{time.sumtimer}}</td>
+    </tr>
+  </table>

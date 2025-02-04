@@ -16,6 +16,8 @@ export class UpdateDialogComponent implements OnInit {
   public errortime: boolean = false  
   public time!:Times
   public date!:Date
+  public category: any[] = []
+  public categorySelected!: number
   constructor(public srv:AjaxService, @Inject(MAT_DIALOG_DATA) public data: Times , public dialogRef: MatDialogRef<UpdateDialogComponent>,) { }
   onNoClick(): void {
     this.dialogRef.close();
@@ -27,6 +29,10 @@ export class UpdateDialogComponent implements OnInit {
     this.time_a = this.data.start
     this.time_b = this.data.end
 
+    this.srv.httppost('/api/getcategories', { user: this.srv.user }).subscribe(response => {
+      this.category = response.data
+      this.categorySelected = this.category.find((id)=> id === this.data.category).id
+    })
 //     this.srv.httppost('/api/gettimesforid', {id: this.data.id})
 //       .subscribe(response=>{
 // this.time = response[0]
@@ -63,6 +69,7 @@ export class UpdateDialogComponent implements OnInit {
       end: endDate,
       sumtimer: `${results}:00`,
       seconds: endDate.getTime() - startDate.getTime(),
+      category: this.categorySelected
     }
     console.log('req:', req);
     this.srv.httppost('/api/updatetimesid', req).subscribe(response=>{console.log(response)});
@@ -70,5 +77,10 @@ export class UpdateDialogComponent implements OnInit {
     
 
   }}
+ public delete(){
+   let id = this.data.id
+   this.srv.httppost('/api/deletetimesid', {id:id, user: this.srv.user}).subscribe(response=>{console.log(response)});
+   this.dialogRef.close();
+  }
 
 }

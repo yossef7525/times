@@ -1,6 +1,6 @@
 <mat-card class="ProfileCard">
 
-
+<button *ngIf="admin" mat-raised-button style=" font-family: 'Assistant', sans-serif; display:block;" color="accent" [routerLink]="['/admin']">ניהול</button>
 
     <h1>הפרופיל שלי</h1>
     <button mat-fab color="accent" aria-label="Example icon button with a home icon">
@@ -52,7 +52,7 @@
             <app-manualpage></app-manualpage>
         </mat-expansion-panel>
         <mat-expansion-panel hideToggle class="cards" id="pdfexporting">
-            <mat-expansion-panel-header (click)="sumshow = true">
+            <mat-expansion-panel-header (click)="sumshow = !sumshow">
                 <mat-panel-title class="card-title">
                     סיכום שעות העבודה שלך
                 </mat-panel-title>
@@ -66,6 +66,21 @@
             <p style=" font-family: 'Assistant', sans-serif;">כאן יוצג שעות העבודה שתעדכן במערכת!</p>
             <app-totaltimes *ngIf="sumshow"></app-totaltimes>
         </mat-expansion-panel>
+        <mat-expansion-panel hideToggle class="cards">
+            <mat-expansion-panel-header (click)="sumshow = false">
+                <mat-panel-title class="card-title">
+                   הגדרת פרוייקטים
+                </mat-panel-title>
+                <mat-panel-description class="card-description">
+                    כאן תוכלו להגדיר פרוייקט
+                </mat-panel-description>
+                <button mat-icon-button color="accent" matTooltip="לחץ כאן, כדי לפתוח." aria-label="Example icon button with a heart icon">
+                    <mat-icon>favorite</mat-icon>
+                </button>
+            </mat-expansion-panel-header>
+            <p style=" font-family: 'Assistant', sans-serif;">כאן יוצג שעות העבודה שתעדכן במערכת!</p>
+            <app-category></app-category>
+        </mat-expansion-panel>
         <mat-card class="cards" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
 
             <h1 class="welcome">נהנית?</h1>
@@ -73,6 +88,17 @@
 
         </mat-card>
     </mat-accordion>
+</div>
+
+<div class="fixed">
+<!-- <div>
+    <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+        <mat-icon>delete</mat-icon>
+      </button>
+</div> -->
+    <p>לפניות, הצעות ייעול ושיפור, תמיכה, תרומות:</p>
+    <p>A0548475725@gmail.com</p>
+
 </div>
 <!-- <div class="table-items">
     <table>

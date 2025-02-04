@@ -8,4 +8,6 @@ export class Times {
     end: any;
     seconds: any;
     sumtimer: any;
+    category?: number;
+    name?: any;
 }

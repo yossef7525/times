@@ -1,0 +1,91 @@
+.table-items{
+    display: block;
+    border: 1px solid #cce4fc;
+    font-family: 'Assistant', sans-serif;
+    width: 600px;
+    margin:auto;
+    border-radius: 2.5px;
+}
+.table-header{
+    width: 650px;
+    height: 50px;
+    background-color: #f2f9ff;
+}
+.table-row{
+    height: 45px;
+     border: 1px solid #cce4fc;
+}
+.ProfileCard{
+    font-family: 'Assistant', sans-serif;
+    margin: 10px;
+    width: 270px;
+    display: inline-block;
+    text-align: center;
+    /* float: right; */
+}
+h1{ 
+    font-family: 'Assistant', sans-serif;
+    display: inline-block;
+    margin: 10px;
+    
+}
+.img-profile{
+    border-radius: 50%;
+    margin: -7.6px;
+    height: 40px;
+    width: 40px;
+}
+.signOut{
+    float: left;
+    font-family: 'Assistant', sans-serif;
+
+}
+.add-today{
+    width: 60%;
+   
+    margin: auto;
+    margin-top: 10px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-right:1px solid #dbdbdb ;
+    border-left:1px solid #dbdbdb ;
+}
+.mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+.card-title{
+    font-family: 'Assistant', sans-serif;
+    font-weight: bolder;
+    text-align: center;
+    margin: auto;
+    width: 35%;
+    
+}
+.card-description{
+    text-align: center;
+    margin: auto;
+    font-family: 'Assistant', sans-serif;
+    font-weight: bolder;
+
+    float: left;
+}
+.cards{
+    width: 90%;
+    margin: auto;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+.start-btn{
+    display: block;
+    margin: auto;
+    margin-top: 5px;
+    align-items: center;
+    font-family: 'Assistant', sans-serif;
+
+}
+.welcome{
+    display: block !important;
+    font-family: 'Suez One', serif !important;
+font-weight: bolder;
+text-align: center !important;
+}
