@@ -187,7 +187,7 @@ public  reqtimes(): void {
       })
   }
  
-  
+
  public pdftest(): void {
    const el = document.getElementById('pdf') as HTMLElement
   const printContents:string = el.innerHTML;
